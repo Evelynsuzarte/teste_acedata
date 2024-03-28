@@ -35,12 +35,23 @@ def exercicio2(n, sequencia):
 
 def exercicio3(n):
     if n == 0:
-        return 0
+        return [0]
     elif n == 1:
-        return 1
+        return [0, 1]
     else:
-        return exercicio3(n-1) + exercicio3(n-2)
+        sequencia = exercicio3(n - 1)
+        sequencia.append(sequencia[-1] + sequencia[-2])
+        return sequencia
 
-#exercicio1(17.50, 40, 2)
-#exercicio2(5, [28,78,19,47,46])
-print(exercicio3(10))
+def exercicio3_b(n):
+    lista = exercicio3(n)
+    if n in lista:
+        print(f"O número {n} pertence a sequência Fibonacci.")
+    else:
+        print(f"O número {n} não pertence a sequência Fibonacci.")
+
+exercicio1(17.50, 40, 2)
+exercicio2(5, [28,78,19,47,46])
+print("\nExercício 3: A sequência Fibonacci é :",exercicio3(10))
+exercicio3_b(10)
+

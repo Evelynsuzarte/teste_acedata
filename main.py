@@ -1,4 +1,4 @@
-
+#questao 1
 def exercicio1(salario_hora, horas_trabalhadas, n_filhos):
     salario_bruto = 0
     salario_familia = 0
@@ -20,6 +20,7 @@ def exercicio1(salario_hora, horas_trabalhadas, n_filhos):
     #print(f"Exercício 1: Salário Bruto = R${salario_bruto} / Salário Família = R${salario_familia} / Salário Líquido = R${salario_liquido}")
     return f"Exercício 1: Salário Bruto = R${salario_bruto} / Salário Família = R${salario_familia} / Salário Líquido = R${salario_liquido}"
 
+#questao 2
 def exercicio2(n, sequencia):
     maior = sequencia[0]
     menor = sequencia[0]
@@ -35,7 +36,7 @@ def exercicio2(n, sequencia):
     #print(f"\nExercício 2: Sequência - {sequencia}\nMaior = {maior} - Menor = {menor}")
     return f"Exercício 2: Sequência - {sequencia}\nMaior = {maior} - Menor = {menor}"
 
-
+#questao 3a
 def exercicio3_a(n):
     if n == 0:
         return [0]
@@ -46,6 +47,7 @@ def exercicio3_a(n):
         sequencia.append(sequencia[-1] + sequencia[-2])
         return sequencia
 
+#questao 3b
 def exercicio3_b(n):
     lista = exercicio3_a(n)
     if n in lista:

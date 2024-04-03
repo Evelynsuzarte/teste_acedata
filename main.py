@@ -5,17 +5,21 @@ def exercicio1(salario_hora, horas_trabalhadas, n_filhos):
     salario_liquido = 0
 
     salario_bruto = salario_hora*horas_trabalhadas
-    if salario_bruto <= 788.00:
-        salario_familia = 30.50*n_filhos
-        salario_liquido = salario_bruto+salario_familia
-    
-    elif salario_bruto > 788 and salario_bruto >= 1100:
-        salario_familia = 18.50*n_filhos
-        salario_liquido = salario_bruto+salario_familia
-    
-    elif salario_bruto > 1100:
-        salario_familia = 11.90*n_filhos
-        salario_liquido = salario_bruto+salario_familia
+
+    if salario_hora < 0:
+        return "Salario negativo"
+    else:
+        if salario_bruto <= 788.00:
+            salario_familia = 30.50*n_filhos
+            salario_liquido = salario_bruto+salario_familia
+        
+        elif salario_bruto > 788 and salario_bruto >= 1100:
+            salario_familia = 18.50*n_filhos
+            salario_liquido = salario_bruto+salario_familia
+        
+        elif salario_bruto > 1100:
+            salario_familia = 11.90*n_filhos
+            salario_liquido = salario_bruto+salario_familia
     
     #print(f"Exercício 1: Salário Bruto = R${salario_bruto} / Salário Família = R${salario_familia} / Salário Líquido = R${salario_liquido}")
     return f"Exercício 1: Salário Bruto = R${salario_bruto} / Salário Família = R${salario_familia} / Salário Líquido = R${salario_liquido}"
@@ -23,18 +27,23 @@ def exercicio1(salario_hora, horas_trabalhadas, n_filhos):
 #questao 2
 def exercicio2(n, sequencia):
     maior = sequencia[0]
+    maior2 = 0
     menor = sequencia[0]
 
     for i in range(n):
         if sequencia[i] > maior:
             maior = sequencia[i]
-    
+
+    for i in range(n):
+        if maior2 < maior and sequencia[i] < maior and sequencia[i] != maior and sequencia[i] > maior2 and maior!=maior2:
+            maior2 = sequencia[i]
+
     for i in range(n):
         if sequencia[i] < menor:
             menor = sequencia[i]
 
     #print(f"\nExercício 2: Sequência - {sequencia}\nMaior = {maior} - Menor = {menor}")
-    return f"Exercício 2: Sequência - {sequencia}\nMaior = {maior} - Menor = {menor}"
+    return f"Exercício 2: Sequência - {sequencia}\nMaior = {maior} - Menor = {menor} - Segundo maior = {maior2}"
 
 #questao 3a
 def exercicio3_a(n):
@@ -44,7 +53,11 @@ def exercicio3_a(n):
         return [0, 1]
     else:
         sequencia = exercicio3_a(n - 1)
-        sequencia.append(sequencia[-1] + sequencia[-2])
+        posicao_ultimo = len(sequencia)
+        if sequencia[posicao_ultimo-1] % 2 == 0:
+            sequencia.append(sequencia[-1] + sequencia[-2] + sequencia[-3] )
+        else:   
+            sequencia.append(sequencia[-1] + sequencia[-2])
         return sequencia
 
 #questao 3b
